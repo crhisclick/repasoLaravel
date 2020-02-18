@@ -15,24 +15,19 @@
 //     return view('welcome');
 // });
 
+use App\Http\Controllers\UserController;
+
 Route::get('/', function(){
     return 'home';
 });
-Route::get('/usuarios' , function(){
-    return 'usuarios';
-});
-Route::get('/usuarios/{id}', function($id){
-    return "mostrando detalle del id {$id} ";
-})->where('id','[0-9]+');
-Route::get('/usuarios/nuevo', function($id){
-    return "crear nuevo usuario";
-});
-Route::get('/saludo/{name}/{nickname?}', function($name,$nickname=NULL){
+Route::get('/usuarios' , 'UserController@index');
 
-    if($nickname){
-       return "Bienvenido {$name}, alias {$nickname}";
-    }else{
-        return "Bienvenido {$name}";
-    }
+Route::get('/usuarios/{id}', 'UserController@show')
+->where('id','[0-9]+');
 
-});
+Route::get('/usuarios/nuevo','UserControlles@create');
+
+Route::get('/usuarios/edit','UserControlles@edit');
+
+Route::get('/saludo/{name}', 'WelcomeController@index');
+Route::get('/saludo/{name}/{nickname}','WelcomeController@nickname');

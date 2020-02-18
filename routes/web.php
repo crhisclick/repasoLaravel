@@ -18,13 +18,9 @@
 Route::get('/', function(){
     return 'home';
 });
-
-
 Route::get('/usuarios' , function(){
     return 'usuarios';
 });
-
-
 Route::get('/usuarios/{id}', function($id){
     return "mostrando detalle del id {$id} ";
 })->where('id','[0-9]+');

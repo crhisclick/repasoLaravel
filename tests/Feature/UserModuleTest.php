@@ -20,6 +20,13 @@ class UserModuleTest extends TestCase
             ->assertSee('ellie')
             ->assertSee('pacheco');
     }
+     /** @return void */
+     function testItEmptyTheUserListPage()
+     {
+         $this->get('/usuarios?empty')
+             ->assertStatus(200)
+             ->assertSee('No hay usuarios registrados');
+     }
     /** @return void */
     function itsLoadUserDertailsPage(){
         $this->get('/usuarios/5')
@@ -36,7 +43,7 @@ class UserModuleTest extends TestCase
     function itsLoadUserEditPage(){
         $this->get('/usuarios/edit')
         ->assertStatus(200)
-        ->assertSee('editar usuario');
+        ->assertSee('Editar usuario');
 
     }
 

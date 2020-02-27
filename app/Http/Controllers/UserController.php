@@ -13,7 +13,7 @@ class UserController extends Controller
         }else{
         $users=['jose','pedro','juan','ellie','pacheco'];
         }
-        return  view('users', compact('users', 'titulo'));
+        return  view('users.index', compact('users', 'titulo'));
     }
     public function show($id){
         $titulo='Detalle de usuario';
@@ -27,5 +27,6 @@ class UserController extends Controller
         $titulo='Editar usuarios';
         return view('users.edit',compact('titulo'));
     }
+
 
 }

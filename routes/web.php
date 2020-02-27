@@ -18,7 +18,7 @@
 use App\Http\Controllers\UserController;
 
 Route::get('/', function(){
-    return 'home';
+    return view('welcome');
 });
 Route::get('/usuarios' , 'UserController@index');
 
@@ -31,3 +31,5 @@ Route::get('/usuarios/edit','UserController@edit');
 
 Route::get('/saludo/{name}', 'WelcomeController@index');
 Route::get('/saludo/{name}/{nickname}','WelcomeController@nickname');
+
+
